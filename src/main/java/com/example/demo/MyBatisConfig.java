@@ -7,14 +7,19 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 @Configuration
 @MapperScan(basePackages={"com.example.demo.repositories"})
 public class MyBatisConfig {
     @Bean public SqlSessionFactory sqlSessionFactory(DataSource dataSource)throws Exception{
-        return null;
+        final SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
+        sqlSessionFactory.setDataSource(dataSource);
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        sqlSessionFactory.setMapperLocations(resolver.getResources("classpath:com/example/demo/repositories/*.xml"));
+        return sqlSessionFactory.getObject();
     }
     @Bean SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory)throws Exception{
+        final SqlSessionTemplate sqlSessionTemplate = new SqlSessionTemplate(sqlSessionFactory);
         return null;
     }
     
