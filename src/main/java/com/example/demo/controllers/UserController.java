@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
-    @Autowired UserService UserService;
+    @Autowired UserService userService;
     @PostMapping("/users")
     public Map<String, String> join(@RequestBody UserDto user) {
         System.out.println("============join============");
@@ -24,7 +24,7 @@ public class UserController {
         System.out.println("아이디: "+user.getUserid());
         System.out.println("비번: "+user.getPassword());
         System.out.println("이름: "+user.getName());
-        int result = UserService.join(user);
+        int result = userService.join(user);
         if(result == 1) {
             map.put("name", user.getName());
         }else {
@@ -38,7 +38,7 @@ public class UserController {
     public Map<String, String> login(@RequestBody UserDto user){
         System.out.println("============= Login ==========");
         Map<String, String> map = new HashMap<>();
-        UserDto result = UserService.login(user);
+        UserDto result = userService.login(user);
         if(result != null){
             map.put("name", result.getName());
         }else{
