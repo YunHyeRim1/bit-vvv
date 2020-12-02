@@ -30,6 +30,21 @@ public class UserController {
         }else {
             map.put("name", "FAILURE");
         }
+
+        
         return map;
     }    
+    @PostMapping("/users/login")
+    public Map<String, String> login(@RequestBody UserDto user){
+        System.out.println("============= Login ==========");
+        Map<String, String> map = new HashMap<>();
+        UserDto result = UserService.login(user);
+        if(result != null){
+            map.put("name", result.getName());
+        }else{
+            map.put("name", "FAILURE");
+        }
+        
+        return map;
+    }
 }

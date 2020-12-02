@@ -6,6 +6,7 @@ import com.example.demo.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired UserRepository userRepository;
@@ -13,5 +14,10 @@ public class UserServiceImpl implements UserService {
     public int join(UserDto user) {
         return userRepository.insert(user);
     }
-    
+
+    @Override
+    public UserDto login(UserDto user) {
+        // TODO Auto-generated method stub
+        return userRepository.login(user);
+    }
 }
