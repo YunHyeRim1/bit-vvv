@@ -7,29 +7,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>HOME</h1>
+    <h1> Home </h1>
     <a id="join" href="#">회원가입</a><br>
     <a id="login" href="#">로그인</a><br>
     <a id="mypage" href="#">마이페이지</a><br>
     <a id="update" href="#">회원정보수정/탈퇴</a><br>
-    <a id='adadfevaff' href="#">adadfevaff 로 가라</a>
-<script>
-    document.getElementById('join')
-    .addEventListener("click", e => {
-        location.href = '/move/users/join'
-    })
-    document.getElementById('login')
-    .addEventListener("click", e => {
-        location.href = '/move/users/login'
-    })
-    document.getElementById('mypage')
-    .addEventListener("click", e => {
-        location.href = '/move/users/mypage'
-    })
-    document.getElementById('update')
-    .addEventListener("click", e => {
-        location.href = '/move/users/update'
-    })
-</script>
+
+    <script>
+        document.getElementById('join').addEventListener('click', e => {
+            location.href = '/move/users/join'
+        })
+        document.getElementById('login').addEventListener('click', e => {
+            location.href = '/move/users/login'
+        })
+        document.getElementById('mypage').addEventListener('click', e => {
+            location.href = '/move/users/mypage'
+        })
+        document.getElementById('update').addEventListener('click', e => {
+            location.href = '/move/users/update'
+        })
+        
+    </script>
 </body>
 </html>

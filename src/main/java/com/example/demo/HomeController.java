@@ -12,8 +12,6 @@ public class HomeController {
     }
     @GetMapping("/move/{dir}/{page}")
     public String move(@PathVariable String dir, @PathVariable String page) {
-        System.out.println("이동할 디렉토리는: "+dir);
-        System.out.println("이동할 페이지는: "+page);
         return String.format("%s/%s", dir, page);
     }
 }
